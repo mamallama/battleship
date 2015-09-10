@@ -8,6 +8,10 @@ class Game
     @computer = computer
   end
 
+  def game_path
+    play_normal_game if @computer == "HAL 9000" 
+
+  end
   def welcome
     puts "Welcome, #{@human.name} and #{@computer.name}!\nIt's time to play Battleship.\n"
   end
@@ -24,6 +28,9 @@ class Game
     puts "YOUR BOARD:"
   @human.grid.display
     # self.place_ships
+  end
+
+  def take_turn
   end
 
 end
