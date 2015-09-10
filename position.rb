@@ -4,7 +4,7 @@ class Position
     @number2 = number2
   end
 
-  def hit? (@number1, @number2)
-  
+  def hit? (number1, number2)
+
   end
 end
