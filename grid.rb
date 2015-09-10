@@ -4,6 +4,7 @@ class Grid
   def initialize
     @ships = []
     @ship_coords = []
+    @shots = []
   end
 
   def display
@@ -51,6 +52,7 @@ class Grid
   def fire_at(x, y)
     ship = has_ship_on?(x, y)
     if ship
+      @shots << [x, y]
       ship.fire_at(x, y)
     else
       return false

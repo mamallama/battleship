@@ -1,6 +1,3 @@
-require './player'
-require './ship'
-
 def get_user_input
   gets.chomp
 end
@@ -18,7 +15,7 @@ class HumanPlayer < Player
     loop do |s|
       s = length_array[counter]
       ship = Ship.new(s)
-      puts "#{name}, where would you like to place a ship of length #{s}?"
+      puts "#{@name}, where would you like to place a ship of length #{s}?"
       input = get_user_input
       x = @grid.x_of(input)
       y = @grid.y_of(input)
@@ -39,6 +36,14 @@ class HumanPlayer < Player
         puts "Unfortunately, that ship overlaps with one of your other ships.  Please try again.\n"
       end
     end
+  end
+
+  def call_shot
+    puts "#{@name}, please enter the coordinates for your next shot (e.g. 'B10'):\n"
+    input = get_user_input
+    x = @grid.x_of(input).to_s
+    y = @grid.y_of(input).to_s
+    x + y
   end
 
 end
