@@ -19,8 +19,8 @@ class Game
 
   def display_status
     puts "SHOTS TAKEN:"
-    @human.grid
-
+    @human.display
+    puts ""
     puts "YOUR BOARD:"
   @human.grid.display
     # self.place_ships

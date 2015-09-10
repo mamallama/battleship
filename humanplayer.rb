@@ -4,6 +4,7 @@ end
 
 class HumanPlayer < Player
   attr_reader :name, :grid, :ships
+
   def initialize(name = "Dave")
     @name = name
     @grid = Grid.new
@@ -46,4 +47,24 @@ class HumanPlayer < Player
     x + y
   end
 
+  def display
+    puts %Q{    1   2   3   4   5   6   7   8   9   10
+  -----------------------------------------}
+    ("A".."J").each_with_index do |l, i|
+      y = i+1
+      line = l + " |"
+      (1..10).each do |x|
+        ship = @grid.has_ship_on?(x, y)
+        line << if ship && ship.hit_on?(x, y)
+                    " + |"
+                elsif grid.miss.include?([x, y])
+                    " - |"
+                else
+                    "   |"
+                end
+      end
+      puts line
+    end
+      puts "  -----------------------------------------"
+  end
 end
